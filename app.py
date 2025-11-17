@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, send_file, session
+from flask import Flask, request, render_template, send_file
 from gerar_qrcode import GerarQR
 import requests
 

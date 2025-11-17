@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de QR Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-slate-100 p-6">
+
+    <main class="w-full max-w-md bg-slate-800 rounded-2xl shadow-2xl p-8">
+        <h1 class="text-3xl font-bold mb-4 text-center text-indigo-400">Gerador de QR Code</h1>
+        <p class="text-sm text-slate-300 mb-6 text-center">
+            Cole uma URL e clique em <strong>Gerar</strong> para criar o QR Code.
+        </p>
+
+        <!-- Formulário -->
+        <form method="POST" class="flex flex-col gap-4">
+            <input type="text" name="url" placeholder="https://exemplo.com" required
+                   class="rounded-lg px-4 py-3 bg-slate-700 border border-slate-600 focus:border-indigo-400 outline-none placeholder:text-slate-400 text-slate-100">
+            <button type="submit"
+                    class="flex justify-center items-center gap-2 px-4 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition active:scale-95">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+                    <path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Gerar QR
+            </button>
+        </form>
+
+        <!-- QR Code -->
+        {% if qr_code %}
+            <div class="mt-6 flex justify-center">
+                <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code" class="rounded-xl shadow-lg">
+            </div>
+
+            <script>
+                setTimeout(() => history.replaceState(null, '', '/'), 150);
+            </script>
+        {% endif %}
+
+        <footer class="mt-6 text-xs text-slate-400 text-center">
+            desenvolvido por Kaique Alencar - estudante de ADS e Python ❤️
+        </footer>
+    </main>
+
+</body>
+</html>

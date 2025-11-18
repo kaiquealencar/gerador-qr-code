@@ -1,5 +1,6 @@
 setTimeout(() => history.replaceState(null, '', window.location.pathname), 150);
 
+console.log("Carregou js");
 async function salvar_com_dialogo() {
     const img = document.getElementById("qr-img");
 
